@@ -1,6 +1,6 @@
-@import url("reset.css");
-@import url("var.css");
-@import url("grid.css");
+@import url("reset.scss");
+@import url("var.scss");
+@import url("grid.scss");
 
 :root {
     font-family: var(--sansFont), -system-ui, system-ui, sans-serif;
@@ -47,34 +47,34 @@ body {
 
 /*—————— mixin definitions ——————————————————————————————————————————————————————————————————————*/
 
-@define-mixin font-title-1 {
+@mixin font-title-1 {
     font-family: var(--titleFont);
     font-weight: 500;
     font-size: 2rem;
     line-height: 2.5rem;
 }
 
-@define-mixin font-title-2 {
-    font-family: var(--titleFont);
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    letter-spacing: 0.01em;
+@mixin font-title-2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
-@define-mixin font-title-3 {
+
+@mixin font-title-3 {
     font-size: inherit;
     font-weight: 500;
 }
 
-@define-mixin dimmed-fg {
+@mixin dimmed-fg {
     color: var(--foreground-color-dimmed);
 }
 
 /* fullwidth is useful for blocks directly at the body level.
    It extends the receiver to the full width of the body without offsetting content.
    Note: Forces setting background-color to --background-color */
-@define-mixin fullwidth {
+@mixin fullwidth {
     /*--offset-x: calc(var(--body-padding-x) + var(--body-bleed));*/
 
     /*--offset-x: var(--body-padding-x);*/
@@ -89,7 +89,7 @@ body {
         calc(var(--shadow-x) * -1) 0 0 0 var(--background-color);
 }
 
-@define-mixin default-dark-mode-vars {
+@mixin default-dark-mode-vars {
     --background-color: #333;
     --foreground-color-rgb: 255, 255, 255;
     --menu-inactive-color: rgba(var(--foreground-color-rgb), 0.3);
@@ -629,7 +629,7 @@ m-grid {
 }
 
 /* ———— columns ————*/
-@define-mixin flow-cols {
+@mixin flow-cols {
     display: block;
     column-count: 3;
     column-gap: var(--column-gap);
@@ -653,7 +653,7 @@ m-grid {
 [flow-cols],
 [flow-cols-s],
 [flow-cols-l] {
-    @mixin flow-cols;
+    @include flow-cols;
 }
 [flow-cols="1"] {
     column-count: 1;
