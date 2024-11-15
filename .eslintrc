@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "no-console": "warn",        // Allow console statements but warn in development
+    "quotes": ["warn", "double"], // Warn if single quotes are used instead of double
+    "semi": ["warn", "always"],   // Warn if semicolons are missing
+    "eol-last": "off",            // Turn off end-of-file newline rule
+    "no-unused-vars": "warn",     // Warn for unused variables instead of erroring
+    "indent": ["warn", 2],        // Set indentation to 2 spaces, with warnings only
+    "comma-dangle": "off"         // Turn off trailing comma requirement
+  }
+}
